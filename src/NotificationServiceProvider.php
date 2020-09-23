@@ -14,7 +14,7 @@ class NotificationServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/../../databases/migrations');
+            $this->loadMigrationsFrom(__DIR__ . '/../databases/migrations');
         }
     }
 

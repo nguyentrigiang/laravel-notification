@@ -26,9 +26,9 @@
     },
     "extra": {
       "laravel": {
-        "providers": [
-          "GiangNT\\LaravelNotification\\NotificationServiceProvider"
-        ]
+          "providers": [
+              "GiangNT\\LaravelNotification\\NotificationServiceProvider"
+          ]
       }
-    },
+    }
 }
