@@ -2,7 +2,7 @@
 
 namespace GiangNT\LaravelNotification;
 
-use GGPHP\GGNotifications\Models\Player;
+use GiangNT\LaravelNotification\Models\Player;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait InteractsWithPlayer
