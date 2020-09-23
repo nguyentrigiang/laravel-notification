@@ -1,0 +1,22 @@
+{
+    "name": "nguyentrigiang/laravel-notification",
+    "description": "A Package for management notification with jsonapi specification",
+    "keywords": [
+        "nguyentrigiang",
+        "notification"
+    ],
+    "homepage": "https://github.com/giangnguyentri/notifications",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "GiangNT",
+            "email": "nguyentrigiang1991@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "berkayk/onesignal-laravel": "^1.0"
+    }
+}
