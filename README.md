@@ -1,1 +1,2 @@
-[![Build Status](https://travis-ci.org/github/nguyentrigiang/laravel-notification.svg)](https://travis-ci.org/github/nguyentrigiang/laravel-notification)
+[![Build Status](https://travis-ci.org/nguyentrigiang/laravel-notification.svg?branch=master)](https://travis-ci.org/nguyentrigiang/laravel-notification)
+[![License](https://img.shields.io/github/license/nguyentrigiang/laravel-notification.svg)](https://github.com/nguyentrigiang/laravel-notification/blob/master/LICENSE)
