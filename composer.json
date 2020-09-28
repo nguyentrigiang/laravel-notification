@@ -30,7 +30,7 @@
     "autoload-dev": {
         "psr-4": {
             "GiangNT\\LaravelNotification\\": "src/",
-            "GiangNT\\LaravelNotification\\Tests\\": "tests"
+            "GiangNT\\LaravelNotification\\Tests\\": "tests/"
         }
     },
     "extra": {
