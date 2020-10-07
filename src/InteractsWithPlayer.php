@@ -14,8 +14,8 @@ trait InteractsWithPlayer
 
     /**
      * Add a player to owner.
+     *
      * @param $player_id
-     * @param $user_id
      */
     public function addPlayer($player_id)
     {
@@ -24,8 +24,8 @@ trait InteractsWithPlayer
 
     /**
      * Delete the associated player with player_id.
+     *
      * @param $player_id
-     * @param $user_id
      */
     public function deletePlayer($player_id)
     {
@@ -34,8 +34,8 @@ trait InteractsWithPlayer
 
     /**
      * Clear the associated players.
+     *
      * @param $player_id
-     * @param $user_id
      */
     public function clearPlayer()
     {

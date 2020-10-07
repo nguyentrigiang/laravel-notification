@@ -2,9 +2,8 @@
 
 namespace GiangNT\LaravelNotification;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\DatabaseNotification;
 
 class BaseNotification extends Notification
 {
@@ -15,13 +14,15 @@ class BaseNotification extends Notification
      */
     public function __construct()
     {
-        $this->setId();
+        if (config('notification.notification_type_id') == 'int') {
+            $this->setId();
+        }
     }
 
     public function setId()
     {
-        $statement = \DB::select("SHOW TABLE STATUS LIKE 'notifications'");
-        $nextId = $statement[0]->Auto_increment;
+        $notification = DatabaseNotification::first();
+        $nextId = $notification ? ++$notification->id : 1;
 
         $this->id = $nextId;
     }
