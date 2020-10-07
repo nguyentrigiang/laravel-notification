@@ -16,7 +16,11 @@ class PlayerTest extends TestCase
      */
     public function testCreateFunction()
     {
-        $user = User::create(['name' => 'Nguyen Tri Giang']);
+        $user = User::create([
+            'name' => 'Nguyen Tri Giang',
+            'email' => 'nguyentrigiang1991@gmail.com',
+            'password' => '123456'
+        ]);
         $user->addPlayer('5ea79c81-327f-4d8b-98b1-58dbd22a277b');
         $this->assertEquals(1, $user->players->count());
     }
@@ -26,7 +30,11 @@ class PlayerTest extends TestCase
      */
     public function testDeleteFunction()
     {
-        $user = User::create(['name' => 'Nguyen Tri Giang']);
+        $user = User::create([
+            'name' => 'Nguyen Tri Giang',
+            'email' => 'nguyentrigiang1991@gmail.com',
+            'password' => '123456'
+        ]);
         $user->addPlayer('5ea79c81-327f-4d8b-98b1-58dbd22a277b');
         $this->assertEquals(1, $user->players->count());
         $user->deletePlayer('5ea79c81-327f-4d8b-98b1-58dbd22a277b');
@@ -39,7 +47,11 @@ class PlayerTest extends TestCase
      */
     public function testClearFunction()
     {
-        $user = User::create(['name' => 'Nguyen Tri Giang']);
+        $user = User::create([
+            'name' => 'Nguyen Tri Giang',
+            'email' => 'nguyentrigiang1991@gmail.com',
+            'password' => '123456'
+        ]);
         $user->addPlayer('5ea79c81-327f-4d8b-98b1-58dbd22a277b');
         $user->addPlayer('b4de36c7-e81d-4690-a15e-c15864b9e2c2');
         $this->assertEquals(2, $user->players->count());
@@ -53,8 +65,16 @@ class PlayerTest extends TestCase
      */
     public function testListFunction()
     {
-        $user = User::create(['name' => 'Nguyen Tri Giang']);
-        $user2 = User::create(['name' => 'Nguyen Tri Giang 2']);
+        $user = User::create([
+            'name' => 'Nguyen Tri Giang',
+            'email' => 'nguyentrigiang1991@gmail.com',
+            'password' => '123456'
+        ]);
+        $user2 = User::create([
+            'name' => 'Nguyen Tri Giang 2',
+            'email' => 'nguyentrigiang1991_2@gmail.com',
+            'password' => '123456'
+        ]);
         $user->addPlayer('5ea79c81-327f-4d8b-98b1-58dbd22a277b');
         $user->addPlayer('b4de36c7-e81d-4690-a15e-c15864b9e2c2');
         $user2->addPlayer('15380637-09da-4755-95e2-d53613548716');

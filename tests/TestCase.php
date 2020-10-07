@@ -4,6 +4,7 @@ namespace GiangNT\LaravelNotification\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 use GiangNT\LaravelNotification\NotificationServiceProvider;
+use Berkayk\OneSignal\OneSignalServiceProvider;
 
 /**
  * Class BaseTests
@@ -20,6 +21,9 @@ class TestCase extends Orchestra
     public function setUp() : void
     {
         parent::setUp();
+
+        $this->loadLaravelMigrations();
+        $this->loadMigrationsFrom(__DIR__ . '/migrations');
 
         $this->artisan('migrate', ['--database' => 'testing']);
 
@@ -39,6 +43,13 @@ class TestCase extends Orchestra
         $app['config']->set('database.default', 'testing');
     }
 
+    protected function getPackageAliases($app)
+    {
+        return [
+            'OneSignal' => 'Berkayk\OneSignal\OneSignalFacade'
+        ];
+    }
+
     /**
      * Get Notification package providers.
      *
@@ -48,6 +59,7 @@ class TestCase extends Orchestra
     {
         return [
             NotificationServiceProvider::class,
+            OneSignalServiceProvider::class,
         ];
     }
 }
