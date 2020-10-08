@@ -37,4 +37,17 @@ class Configuration extends Model
     {
         return $this->morphTo();
     }
+
+    public function isSend($datetime) {
+        $time = strtotime($datetime);
+
+        if (!in_array(date('l', $time), $this->days_of_the_week)) return false;
+
+        $start_time = strtotime($this->start_time);
+        $end_time = strtotime($this->end_time);
+        $current_time = strtotime(date('G:i', $time));
+        if ($current_time < $start_time || $current_time > $end_time) return false;
+
+        return true;
+    }
 }

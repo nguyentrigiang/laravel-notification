@@ -19,9 +19,10 @@ class OnesignalChannel
         $data = $notification->toOnesignal($notifiable);
 
         $players = $notifiable->players;
-
         $configuration = $notifiable->configuration;
-        if ($this->isSend($configuration) && !empty($players)) {
+        $isSend = empty($configuration) ? true : $configuration->isSend(date('Y-m-d H:i'));
+
+        if ($isSend && !empty($players)) {
             foreach ($players as $player) {
                 $params = $this->prepareParams($data, $player->player_id);
                 OneSignal::sendNotificationCustom($params);
@@ -69,18 +70,5 @@ class OnesignalChannel
         }
 
         return $params;
-    }
-
-    public function isSend($configuration) {
-        if ($configuration) {
-            if (!in_array(date('l'), $configuration->days_of_the_week)) return false;
-
-            $start_time = strtotime($configuration->start_time);
-            $end_time = strtotime($configuration->end_time);
-            $current_time = strtotime(date('G:i'));
-            if ($current_time < $start_time || $current_time > $end_time) return false;
-        }
-
-        return true;
     }
 }
