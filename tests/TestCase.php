@@ -23,8 +23,8 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->loadLaravelMigrations();
-        $this->loadMigrationsFrom(__DIR__ . '/migrations');
 
+        $this->artisan('vendor:publish', ['--provider' => 'GiangNT\LaravelNotification\NotificationServiceProvider']);
         $this->artisan('migrate', ['--database' => 'testing']);
 
         $this->beforeApplicationDestroyed(function () {
