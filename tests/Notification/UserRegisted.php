@@ -15,7 +15,7 @@ class UserRegisted extends BaseNotification
      */
     public function via($notifiable)
     {
-        return [OnesignalChannel::class];
+        return [OnesignalChannel::class, 'database'];
     }
 
     /**
@@ -25,6 +25,19 @@ class UserRegisted extends BaseNotification
      * @return WebappMessage
      */
     public function toOnesignal($notifiable)
+    {
+        return [
+            'message' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
     {
         return [
             'message' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
